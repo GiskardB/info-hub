@@ -1,0 +1,63 @@
+# Pubblica su GitHub Pages tutte le vetrine del repository.
+#
+# Ogni cartella di primo livello che contiene almeno un file .html viene
+# pubblicata cosi' com'e' sotto il proprio nome:
+#
+#     cronomostri/privacy/index.html
+#         -> https://giskardb.github.io/info-hub/cronomostri/privacy/
+#
+# Per aggiungere una vetrina nuova non serve modificare questo workflow:
+# basta creare la cartella con dentro le sue pagine HTML.
+
+name: Pubblica le vetrine su GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Permessi minimi necessari al deploy su Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un deploy alla volta; le richieste in coda attendono senza annullare
+# quella gia' in corso.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Genera _site (una cartella = una vetrina)
+        run: node tools/build-site.js
+
+      - name: Configura Pages
+        uses: actions/configure-pages@v5
+
+      - name: Carica l'artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy su GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
