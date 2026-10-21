@@ -26,6 +26,18 @@ Avventura punta-e-clicca 2D per bambini (repository del gioco: `cronomostri-gsf`
 > funziona interamente offline, non raccoglie dati personali, non contiene pubblicità né
 > acquisti in-app.
 
+### `fuffolo/` — Fùffolo: Un'estate spaziale
+
+Avventura punta-e-clicca per bambini di Studio Merenda (repository del gioco: `fuffolo-gsf`).
+
+| Pagina | URL pubblico |
+| --- | --- |
+| Vetrina del gioco | <https://giskardb.github.io/info-hub/fuffolo/> |
+| **Norme sulla privacy** | **<https://giskardb.github.io/info-hub/fuffolo/privacy/>** |
+
+> Stesso trattamento di cronomostri: pagina bilingue IT/EN, gioco 100% offline (permesso
+> `INTERNET` disabilitato), nessun SDK di terze parti, nessuna pubblicità né acquisto in-app.
+
 ---
 
 ## Come funziona la pubblicazione

@@ -1,0 +1,8 @@
+{
+  "name": "Fùffolo: Un'estate spaziale",
+  "description": "Avventura punta-e-clicca per bambini di Studio Merenda. Vetrina del gioco e pagine pubbliche richieste dagli store.",
+  "links": [
+    { "label": "Vetrina del gioco", "href": "fuffolo/" },
+    { "label": "Norme sulla privacy / Privacy Policy", "href": "fuffolo/privacy/" }
+  ]
+}
